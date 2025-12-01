@@ -1,0 +1,103 @@
+// 国内可用工具配置
+export const domesticAvailableSites = {
+  // 全球榜国内可用的工具
+  global: {
+    'Claude': true,
+    'GitHub Copilot': true,
+    'Notion AI': true,
+    'Cursor': true,
+    'Runway': true,
+    'Jasper': true,
+    'Replit AI': true,
+    'Otter.ai': true,
+    'anthropic.com': true,
+    'OneUsefulThing.org': true,
+    'OCR Arena AI': true,
+    'sawyerhood.com': true,
+    'HelixGuard AI': true,
+    'lesleylai.info': true,
+    'Karumi.ai': true,
+    'UCSC新闻': true,
+    'LWN.net': true,
+    'TechMeme新闻': true,
+    'BFL.ai': true,
+    'IEEE Spectrum': true,
+    'Electrek': true,
+    'Wikimedia技术博客': true,
+    'HackTron.ai': true,
+    'Michigan Daily': true,
+    'Generativist': true,
+    'Microsoft开发者博客': true,
+    'Andrej.sh': true,
+    'RepairFAQ': true,
+    'Catacombs.space1999.net': true,
+    'RDW.com': true,
+    'Mergify博客': true,
+    'Fokus.cool': true,
+    'Y Combinator': true
+  },
+  
+  // 国内榜国内可用的工具（全部可用）
+  domestic: {
+    'ChatGLM': true,
+    '文心一言': true,
+    '讯飞星火': true,
+    '通义千问': true,
+    '智谱清言': true,
+    '豆包': true,
+    '百川智能': true,
+    '月之暗面': true,
+    'MiniMax': true,
+    '零一万物': true,
+    '商汤日日新': true,
+    '昆仑万维': true,
+    '360智脑': true,
+    '网易有道': true,
+    '美图设计室': true,
+    'WPS AI': true,
+    '腾讯文档': true,
+    '钉钉AI': true,
+    '飞书': true,
+    '企业微信': true,
+    '腾讯会议': true,
+    '字节跳动': true,
+    '阿里巴巴': true,
+    '百度智能云': true,
+    '华为云': true,
+    '阿里云': true,
+    '腾讯云': true,
+    '字节云': true,
+    '美团云': true,
+    '京东云': true,
+    '网易云音乐': true,
+    '腾讯视频': true,
+    '爱奇艺': true,
+    '优酷': true,
+    '哔哩哔哩': true,
+    '抖音': true,
+    '快手': true,
+    '小红书': true,
+    '微博': true,
+    '知乎': true,
+    '豆瓣': true,
+    '携程': true,
+    '去哪儿': true,
+    '飞猪': true,
+    '途牛': true,
+    '同程': true,
+    '猫眼电影': true,
+    '淘票票': true,
+    '大众点评': true,
+    '美团外卖': true,
+    '饿了么': true,
+    '滴滴': true
+  }
+};
+
+// 检查工具是否在国内可用
+export function isSiteAvailableInChina(siteName: string, region: 'global' | 'domestic'): boolean {
+  const regionalAvailable = domesticAvailableSites[region];
+  if (!regionalAvailable) return false;
+  
+  return regionalAvailable[siteName as keyof typeof regionalAvailable] === true;
+}
